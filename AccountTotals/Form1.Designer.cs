@@ -30,12 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.Entry = new System.Windows.Forms.TextBox();
-            this.HistoryView = new System.Windows.Forms.ListView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AccountsBind = new System.Windows.Forms.BindingSource(this.components);
             this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountsBind = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Entry = new System.Windows.Forms.TextBox();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.UndoButton = new System.Windows.Forms.Button();
+            this.RedoButton = new System.Windows.Forms.Button();
+            this.HistoryView = new System.Windows.Forms.ListView();
             this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -43,6 +47,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -57,35 +62,11 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.HistoryView);
-            this.splitContainer1.Panel2.Controls.Add(this.Entry);
-            this.splitContainer1.Size = new System.Drawing.Size(809, 643);
-            this.splitContainer1.SplitterDistance = 269;
+            this.splitContainer1.Size = new System.Drawing.Size(640, 462);
+            this.splitContainer1.SplitterDistance = 211;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // Entry
-            // 
-            this.Entry.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Entry.Location = new System.Drawing.Point(0, 623);
-            this.Entry.Name = "Entry";
-            this.Entry.Size = new System.Drawing.Size(536, 20);
-            this.Entry.TabIndex = 0;
-            this.Entry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Entry_KeyPress);
-            // 
-            // HistoryView
-            // 
-            this.HistoryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Item});
-            this.HistoryView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HistoryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HistoryView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.HistoryView.Location = new System.Drawing.Point(0, 0);
-            this.HistoryView.MultiSelect = false;
-            this.HistoryView.Name = "HistoryView";
-            this.HistoryView.Size = new System.Drawing.Size(536, 623);
-            this.HistoryView.TabIndex = 1;
-            this.HistoryView.UseCompatibleStateImageBehavior = false;
-            this.HistoryView.View = System.Windows.Forms.View.Details;
             // 
             // dataGridView1
             // 
@@ -110,7 +91,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(269, 643);
+            this.dataGridView1.Size = new System.Drawing.Size(211, 462);
             this.dataGridView1.TabIndex = 0;
             // 
             // Account
@@ -129,21 +110,91 @@
             this.Total.ReadOnly = true;
             this.Total.Width = 5;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Entry);
+            this.panel1.Controls.Add(this.ClearButton);
+            this.panel1.Controls.Add(this.UndoButton);
+            this.panel1.Controls.Add(this.RedoButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 406);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(425, 56);
+            this.panel1.TabIndex = 5;
+            // 
+            // Entry
+            // 
+            this.Entry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Entry.Location = new System.Drawing.Point(0, 0);
+            this.Entry.Name = "Entry";
+            this.Entry.Size = new System.Drawing.Size(425, 20);
+            this.Entry.TabIndex = 0;
+            this.Entry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Entry_KeyPress);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(277, 26);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 3;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // UndoButton
+            // 
+            this.UndoButton.Location = new System.Drawing.Point(74, 26);
+            this.UndoButton.Name = "UndoButton";
+            this.UndoButton.Size = new System.Drawing.Size(75, 23);
+            this.UndoButton.TabIndex = 4;
+            this.UndoButton.Text = "Undo";
+            this.UndoButton.UseVisualStyleBackColor = true;
+            this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
+            // 
+            // RedoButton
+            // 
+            this.RedoButton.Location = new System.Drawing.Point(182, 26);
+            this.RedoButton.Name = "RedoButton";
+            this.RedoButton.Size = new System.Drawing.Size(75, 23);
+            this.RedoButton.TabIndex = 2;
+            this.RedoButton.Text = "Redo";
+            this.RedoButton.UseVisualStyleBackColor = true;
+            this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
+            // 
+            // HistoryView
+            // 
+            this.HistoryView.BackColor = System.Drawing.SystemColors.Menu;
+            this.HistoryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Item});
+            this.HistoryView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HistoryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.HistoryView.Location = new System.Drawing.Point(0, 0);
+            this.HistoryView.MultiSelect = false;
+            this.HistoryView.Name = "HistoryView";
+            this.HistoryView.Size = new System.Drawing.Size(425, 462);
+            this.HistoryView.TabIndex = 1;
+            this.HistoryView.UseCompatibleStateImageBehavior = false;
+            this.HistoryView.View = System.Windows.Forms.View.Details;
+            // 
             // AccountTotalsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 643);
+            this.ClientSize = new System.Drawing.Size(640, 462);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(656, 500);
             this.Name = "AccountTotalsForm";
             this.Text = "Account Totals";
+            this.TopMost = true;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,6 +209,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Account;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.ColumnHeader Item;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button UndoButton;
+        private System.Windows.Forms.Button RedoButton;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 

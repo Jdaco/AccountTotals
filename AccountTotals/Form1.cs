@@ -41,6 +41,16 @@ namespace AccountTotals
             dataGridView1.ClearSelection();
         }
 
+        void IAccountView.clearAccounts()
+        {
+            AccountsBind.Clear();
+        }
+
+        void IAccountView.clearHistory()
+        {
+            HistoryView.Items.Clear();
+        }
+
         private void Entry_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -48,6 +58,21 @@ namespace AccountTotals
                 _composer.ReadCommand(Entry.Text);
                 Entry.Clear();
             }
+        }
+
+        private void UndoButton_Click(object sender, EventArgs e)
+        {
+            _composer.Undo();
+        }
+
+        private void RedoButton_Click(object sender, EventArgs e)
+        {
+            _composer.Redo();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            _composer.Clear();
         }
     }
 }

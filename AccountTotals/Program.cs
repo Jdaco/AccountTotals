@@ -24,6 +24,8 @@ namespace AccountTotals
     {
         void setAccounts(IEnumerable<KeyValuePair<string, double>> accounts);
         void setHistory(IEnumerable<string> history);
+        void clearAccounts();
+        void clearHistory();
     }
 
     public class AccountComposer
@@ -71,12 +73,7 @@ namespace AccountTotals
                 MacroCommand m = new MacroCommand(c, a);
                 m.Execute();
                 _history.Add(m);
-
-                _view.setAccounts(_accounts);
-
-                List<string> l = _actions.ToList();
-                l.Reverse();
-                _view.setHistory(l);
+                RefreshView();
                 _buff = null;
             }
             else
@@ -88,11 +85,31 @@ namespace AccountTotals
         public void Undo()
         {
             _history.Undo();
+            RefreshView();
         }
         
         public void Redo()
         {
             _history.Redo();
+            RefreshView();
+        }
+
+        public void Clear()
+        {
+            _accounts.Clear();
+            _buff = null;
+            _actions.Clear();
+            _history.Clear();
+            _view.clearHistory();
+            _view.clearAccounts();
+        }
+
+        private void RefreshView()
+        {
+            _view.setAccounts(_accounts);
+            List<string> l = _actions.ToList();
+            l.Reverse();
+            _view.setHistory(l);
         }
     }
 
@@ -234,6 +251,18 @@ namespace AccountTotals
         public void Add(Command c)
         {
             _past.Push(c);
+            ClearFuture();
+        }
+
+        private void ClearFuture()
+        {
+            _future.Clear();
+        }
+
+        public void Clear()
+        {
+            _past.Clear();
+            _future.Clear();
         }
     }
 
