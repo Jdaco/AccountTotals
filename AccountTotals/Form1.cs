@@ -19,6 +19,7 @@ namespace AccountTotals
             InitializeComponent();
             _composer = new AccountComposer(this);
             dataGridView1.Font = HistoryView.Font;
+            this.ActiveControl = Entry;
         }
 
         void IAccountView.setHistory(IEnumerable<string> items)
@@ -31,10 +32,10 @@ namespace AccountTotals
             HistoryView.Columns[0].Width = -1;
         }
 
-        void IAccountView.setAccounts(IEnumerable<KeyValuePair<string, double>> items)
+        void IAccountView.setAccounts(IEnumerable<KeyValuePair<string, Decimal>> items)
         {
             AccountsBind.Clear();
-            foreach (KeyValuePair<string, double> item in items)
+            foreach (KeyValuePair<string, Decimal> item in items)
             {
                 AccountsBind.Add(item);
             }
@@ -73,6 +74,11 @@ namespace AccountTotals
         private void ClearButton_Click(object sender, EventArgs e)
         {
             _composer.Clear();
+        }
+
+        private void Entry_Leave(object sender, EventArgs e)
+        {
+            Entry.Focus();
         }
     }
 }

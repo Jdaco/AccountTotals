@@ -117,23 +117,26 @@
             this.panel1.Controls.Add(this.UndoButton);
             this.panel1.Controls.Add(this.RedoButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 406);
+            this.panel1.Location = new System.Drawing.Point(0, 395);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 56);
+            this.panel1.Size = new System.Drawing.Size(425, 67);
             this.panel1.TabIndex = 5;
             // 
             // Entry
             // 
+            this.Entry.BackColor = System.Drawing.SystemColors.Window;
             this.Entry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Entry.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Entry.Location = new System.Drawing.Point(0, 0);
             this.Entry.Name = "Entry";
-            this.Entry.Size = new System.Drawing.Size(425, 20);
+            this.Entry.Size = new System.Drawing.Size(425, 30);
             this.Entry.TabIndex = 0;
             this.Entry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Entry_KeyPress);
+            this.Entry.Leave += new System.EventHandler(this.Entry_Leave);
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(277, 26);
+            this.ClearButton.Location = new System.Drawing.Point(280, 36);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 23);
             this.ClearButton.TabIndex = 3;
@@ -143,7 +146,7 @@
             // 
             // UndoButton
             // 
-            this.UndoButton.Location = new System.Drawing.Point(74, 26);
+            this.UndoButton.Location = new System.Drawing.Point(74, 36);
             this.UndoButton.Name = "UndoButton";
             this.UndoButton.Size = new System.Drawing.Size(75, 23);
             this.UndoButton.TabIndex = 4;
@@ -153,7 +156,7 @@
             // 
             // RedoButton
             // 
-            this.RedoButton.Location = new System.Drawing.Point(182, 26);
+            this.RedoButton.Location = new System.Drawing.Point(176, 36);
             this.RedoButton.Name = "RedoButton";
             this.RedoButton.Size = new System.Drawing.Size(75, 23);
             this.RedoButton.TabIndex = 2;

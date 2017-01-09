@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountTotals", "AccountTotals\AccountTotals.csproj", "{2D216F1D-A922-4E69-827F-F0F8165CAF68}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountTotalsTests", "AccountTotalsTests\AccountTotalsTests.csproj", "{B0DF88B9-A077-4ABD-8931-FBEA01265909}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D216F1D-A922-4E69-827F-F0F8165CAF68} = {2D216F1D-A922-4E69-827F-F0F8165CAF68}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

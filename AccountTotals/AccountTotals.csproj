@@ -78,10 +78,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AccountTotalsTests\AccountTotalsTests.csproj">
-      <Project>{b0df88b9-a077-4abd-8931-fbea01265909}</Project>
-      <Name>AccountTotalsTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

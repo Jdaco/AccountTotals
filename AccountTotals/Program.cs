@@ -22,7 +22,7 @@ namespace AccountTotals
 
     public interface IAccountView
     {
-        void setAccounts(IEnumerable<KeyValuePair<string, double>> accounts);
+        void setAccounts(IEnumerable<KeyValuePair<string, Decimal>> accounts);
         void setHistory(IEnumerable<string> history);
         void clearAccounts();
         void clearHistory();
@@ -32,14 +32,14 @@ namespace AccountTotals
     {
         private IAccountView _view;
         private HistoryList _history;
-        private IDictionary<string, double> _accounts;
+        private IDictionary<string, Decimal> _accounts;
         private Stack<string> _actions;
         private string _buff = null;
 
         public AccountComposer(IAccountView view)
         {
             _history = new HistoryList();
-            _accounts = new SortedDictionary<string, double>();
+            _accounts = new SortedDictionary<string, Decimal>();
             _actions = new Stack<string>();
             _view = view;
         }
@@ -48,10 +48,10 @@ namespace AccountTotals
         {
             if (_buff != null)
             {
-                double d;
+                Decimal d;
                 try
                 {
-                    d = Convert.ToDouble(command);
+                    d = Convert.ToDecimal(command);
                 }
                 catch (InvalidCastException)
                 {
@@ -147,11 +147,11 @@ namespace AccountTotals
 
     public class CreateAccount : Command
     {
-        private IDictionary<string, double> _accounts;
+        private IDictionary<string, Decimal> _accounts;
         private string _key;
-        private double _amount;
+        private Decimal _amount;
 
-        public CreateAccount(ref IDictionary<string, double> accounts, string key, double amount)
+        public CreateAccount(ref IDictionary<string, Decimal> accounts, string key, Decimal amount)
         {
             _accounts = accounts;
             _key = key;
@@ -171,13 +171,13 @@ namespace AccountTotals
 
     public class AddToAccount : Command
     {
-        private IDictionary<string, double> _accounts;
+        private IDictionary<string, Decimal> _accounts;
         private string _key;
-        private double _amount;
+        private Decimal _amount;
         private string _buff;
-        private double d;
+        private Decimal d;
 
-        public AddToAccount(ref IDictionary<string, double> accounts, string key, double amount)
+        public AddToAccount(ref IDictionary<string, Decimal> accounts, string key, Decimal amount)
         {
             _accounts = accounts;
             _key = key;
