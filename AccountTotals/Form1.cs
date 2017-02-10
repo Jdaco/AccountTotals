@@ -22,6 +22,14 @@ namespace AccountTotals
             this.ActiveControl = Entry;
         }
 
+        public void RefreshHistory()
+        {
+            if (HistoryView.Items.Count > 0)
+            {
+                HistoryView.Items[HistoryView.Items.Count - 1].EnsureVisible();
+            }
+        }
+
         void IAccountView.setHistory(IEnumerable<string> items)
         {
             HistoryView.Items.Clear();

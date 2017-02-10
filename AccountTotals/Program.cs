@@ -26,6 +26,7 @@ namespace AccountTotals
         void setHistory(IEnumerable<string> history);
         void clearAccounts();
         void clearHistory();
+        void RefreshHistory();
     }
 
     public class AccountComposer
@@ -110,6 +111,7 @@ namespace AccountTotals
             List<string> l = _actions.ToList();
             l.Reverse();
             _view.setHistory(l);
+            _view.RefreshHistory();
         }
     }
 

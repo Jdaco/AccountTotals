@@ -41,6 +41,7 @@
             this.RedoButton = new System.Windows.Forms.Button();
             this.HistoryView = new System.Windows.Forms.ListView();
             this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -48,6 +49,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -62,8 +67,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Panel2.Controls.Add(this.HistoryView);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(640, 462);
             this.splitContainer1.SplitterDistance = 211;
             this.splitContainer1.TabIndex = 0;
@@ -116,10 +120,10 @@
             this.panel1.Controls.Add(this.ClearButton);
             this.panel1.Controls.Add(this.UndoButton);
             this.panel1.Controls.Add(this.RedoButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 395);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 67);
+            this.panel1.Size = new System.Drawing.Size(425, 68);
             this.panel1.TabIndex = 5;
             // 
             // Entry
@@ -175,10 +179,30 @@
             this.HistoryView.Location = new System.Drawing.Point(0, 0);
             this.HistoryView.MultiSelect = false;
             this.HistoryView.Name = "HistoryView";
-            this.HistoryView.Size = new System.Drawing.Size(425, 462);
+            this.HistoryView.Size = new System.Drawing.Size(425, 390);
             this.HistoryView.TabIndex = 1;
             this.HistoryView.UseCompatibleStateImageBehavior = false;
             this.HistoryView.View = System.Windows.Forms.View.Details;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.HistoryView);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.panel1);
+            this.splitContainer2.Size = new System.Drawing.Size(425, 462);
+            this.splitContainer2.SplitterDistance = 390;
+            this.splitContainer2.TabIndex = 1;
             // 
             // AccountTotalsForm
             // 
@@ -198,6 +222,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,6 +244,7 @@
         private System.Windows.Forms.Button UndoButton;
         private System.Windows.Forms.Button RedoButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.SplitContainer splitContainer2;
     }
 }
 
