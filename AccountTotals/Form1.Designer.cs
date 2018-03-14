@@ -30,40 +30,45 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountsBind = new System.Windows.Forms.BindingSource(this.components);
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.HistoryView = new System.Windows.Forms.ListView();
+            this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.Entry = new System.Windows.Forms.TextBox();
             this.ClearButton = new System.Windows.Forms.Button();
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
-            this.HistoryView = new System.Windows.Forms.ListView();
-            this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.TotalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer3);
             // 
             // splitContainer1.Panel2
             // 
@@ -71,6 +76,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(640, 462);
             this.splitContainer1.SplitterDistance = 211;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.dataGridView1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.TotalLabel);
+            this.splitContainer3.Size = new System.Drawing.Size(211, 462);
+            this.splitContainer3.SplitterDistance = 425;
+            this.splitContainer3.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -95,7 +118,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(211, 462);
+            this.dataGridView1.Size = new System.Drawing.Size(211, 425);
             this.dataGridView1.TabIndex = 0;
             // 
             // Account
@@ -113,6 +136,42 @@
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Width = 5;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.HistoryView);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.panel1);
+            this.splitContainer2.Size = new System.Drawing.Size(425, 462);
+            this.splitContainer2.SplitterDistance = 390;
+            this.splitContainer2.TabIndex = 1;
+            // 
+            // HistoryView
+            // 
+            this.HistoryView.BackColor = System.Drawing.SystemColors.Menu;
+            this.HistoryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Item});
+            this.HistoryView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HistoryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.HistoryView.Location = new System.Drawing.Point(0, 0);
+            this.HistoryView.MultiSelect = false;
+            this.HistoryView.Name = "HistoryView";
+            this.HistoryView.Size = new System.Drawing.Size(425, 390);
+            this.HistoryView.TabIndex = 1;
+            this.HistoryView.UseCompatibleStateImageBehavior = false;
+            this.HistoryView.View = System.Windows.Forms.View.Details;
             // 
             // panel1
             // 
@@ -168,41 +227,16 @@
             this.RedoButton.UseVisualStyleBackColor = true;
             this.RedoButton.Click += new System.EventHandler(this.RedoButton_Click);
             // 
-            // HistoryView
+            // TotalLabel
             // 
-            this.HistoryView.BackColor = System.Drawing.SystemColors.Menu;
-            this.HistoryView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Item});
-            this.HistoryView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HistoryView.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HistoryView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.HistoryView.Location = new System.Drawing.Point(0, 0);
-            this.HistoryView.MultiSelect = false;
-            this.HistoryView.Name = "HistoryView";
-            this.HistoryView.Size = new System.Drawing.Size(425, 390);
-            this.HistoryView.TabIndex = 1;
-            this.HistoryView.UseCompatibleStateImageBehavior = false;
-            this.HistoryView.View = System.Windows.Forms.View.Details;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.HistoryView);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.panel1);
-            this.splitContainer2.Size = new System.Drawing.Size(425, 462);
-            this.splitContainer2.SplitterDistance = 390;
-            this.splitContainer2.TabIndex = 1;
+            this.TotalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.TotalLabel.Location = new System.Drawing.Point(0, 0);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.TotalLabel.Size = new System.Drawing.Size(211, 33);
+            this.TotalLabel.TabIndex = 0;
+            this.TotalLabel.Text = "Total: ";
             // 
             // AccountTotalsForm
             // 
@@ -218,14 +252,18 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsBind)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +283,8 @@
         private System.Windows.Forms.Button RedoButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Label TotalLabel;
     }
 }
 

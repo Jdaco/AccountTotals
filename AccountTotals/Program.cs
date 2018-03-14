@@ -23,6 +23,7 @@ namespace AccountTotals
     public interface IAccountView
     {
         void setAccounts(IEnumerable<KeyValuePair<string, Decimal>> accounts);
+        void setTotal(string total);
         void setHistory(IEnumerable<string> history);
         void clearAccounts();
         void clearHistory();
@@ -107,7 +108,9 @@ namespace AccountTotals
 
         private void RefreshView()
         {
+            string total = _accounts.Values.Sum().ToString();
             _view.setAccounts(_accounts);
+            _view.setTotal(total);
             List<string> l = _actions.ToList();
             l.Reverse();
             _view.setHistory(l);

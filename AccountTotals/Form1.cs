@@ -40,6 +40,10 @@ namespace AccountTotals
             HistoryView.Columns[0].Width = -1;
         }
 
+        void IAccountView.setTotal(string total)
+        {
+            TotalLabel.Text = "Total: " + total;
+        }
         void IAccountView.setAccounts(IEnumerable<KeyValuePair<string, Decimal>> items)
         {
             AccountsBind.Clear();
